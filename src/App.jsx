@@ -214,7 +214,7 @@ function App() {
             </div>
         </div>
       </main>
-      <footer className='bg-gray-800 text-white mt-12'> 
+      <footer className='bg-gray-800 text-white'> 
         <Footer />
       </footer>
     </>
