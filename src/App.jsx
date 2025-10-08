@@ -4,9 +4,11 @@ import Banner from './Components/Banner'
 import CoustomerTicket from './Components/CoustomerTicket'
 import Footer from './Components/Footer'
 import NavBar from './Components/NavBar'
+import TaskStatusSection from './Components/TaskStatusSection'
 
 function App() {
   const [ inProgressCard, setInProgressCard ] = useState([]); 
+  const [resolved, setResolved] = useState(0); 
 
   console.log("In Progress card data are here " , inProgressCard)
 
@@ -17,7 +19,7 @@ function App() {
       <header className='bg-white shadow-md'>
         <NavBar />
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8'>
-          <Banner />
+          <Banner resolved={resolved} inProgressCard={inProgressCard} />
         </div>
       </header>
       <main className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-white'>
@@ -36,12 +38,11 @@ function App() {
           {/* Task Status section */}
 
           <div>
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">Task Status</h2>
-            <div className="bg-white p-4 rounded-lg ticket-card">
-              <p className="text-sm text-gray-600 mb-3">Select a ticket to add to Task Status</p>
-              <h3 className="font-semibold text-gray-900 mb-2">Resolved Task</h3>
-              <p className="text-sm text-gray-500">No resolved tasks yet.</p>
-            </div>
+           <TaskStatusSection 
+           setResolved={setResolved}
+           inProgressCard={inProgressCard}
+           setInProgressCard={setInProgressCard}
+           /> 
           </div>
         </div>
       </main>
