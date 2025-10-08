@@ -10,9 +10,6 @@ function App() {
   const [ inProgressCard, setInProgressCard ] = useState([]); 
   const [resolved, setResolved] = useState(0); 
 
-  console.log("In Progress card data are here " , inProgressCard)
-
-
   const CustomerTicketPromise = fetch("data.json").then(res => res.json());
   return (
     <>

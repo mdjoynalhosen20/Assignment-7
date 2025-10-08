@@ -23,9 +23,6 @@ const TaskStatusSection = ({ setInProgressCard, inProgressCard, setResolved }) =
             <p className="text-sm text-gray-500">No resolved tasks yet.</p>
              }
         </div>
-        {/* {
-            
-        } */}
     </>)
 };
 
