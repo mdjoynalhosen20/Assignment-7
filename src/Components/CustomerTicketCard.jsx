@@ -1,7 +1,11 @@
-const CustomerTicketCard = ({ticket}) => {
+const CustomerTicketCard = ({ticket, inProgressCard, setInProgressCard}) => {
     const {id, title, description, customer, priority, status, createdAt} = ticket; 
+    const handleCardClick = (singleTicket) => {
+        const newData = [...inProgressCard, singleTicket]; 
+        setInProgressCard(newData); 
+    }
     return (<>
-        <div key={id} className="bg-white p-4 rounded-lg ticket-card">
+        <div key={id} onClick={() => handleCardClick(ticket)} className="bg-white p-4 rounded-lg ticket-card">
                         <div className="flex justify-between items-start mb-2">
                             <h3 className="font-semibold text-gray-900">{title}</h3>
                             <span className="text-xs font-medium text-green-600 bg-green-100 px-2 py-0.5 rounded-full">{status}</span>

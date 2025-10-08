@@ -1,7 +1,7 @@
 import { use } from "react";
 import CustomerTicketCard from "./CustomerTicketCard";
 
-const CoustomerTicket = ({CustomerTicketPromise}) => {
+const CoustomerTicket = ({CustomerTicketPromise, setInProgressCard, inProgressCard}) => {
     const data = use(CustomerTicketPromise)
     return (<>
         <div>
@@ -11,7 +11,7 @@ const CoustomerTicket = ({CustomerTicketPromise}) => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                     {
-                        data?.map((d, i) => <CustomerTicketCard ticket={d} key={i} />)
+                        data?.map((d, i) => <CustomerTicketCard setInProgressCard={setInProgressCard} inProgressCard={inProgressCard} ticket={d} key={i} />)
                     }
                 </div>
             </div>

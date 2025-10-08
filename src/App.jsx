@@ -1,4 +1,4 @@
-import { Suspense, use } from 'react'
+import { Suspense, use, useState } from 'react'
 import './App.css'
 import Banner from './Components/Banner'
 import CoustomerTicket from './Components/CoustomerTicket'
@@ -6,6 +6,10 @@ import Footer from './Components/Footer'
 import NavBar from './Components/NavBar'
 
 function App() {
+  const [ inProgressCard, setInProgressCard ] = useState([]); 
+
+  console.log("In Progress card data are here " , inProgressCard)
+
 
   const CustomerTicketPromise = fetch("data.json").then(res => res.json());
   return (
@@ -21,7 +25,11 @@ function App() {
           {/* Coustomerr Tickets Section */}
           <div className='lg:col-span-2'>
             <Suspense fallback="Loading...">
-              <CoustomerTicket CustomerTicketPromise={CustomerTicketPromise} />
+              <CoustomerTicket
+                CustomerTicketPromise={CustomerTicketPromise}
+                inProgressCard={inProgressCard}
+                setInProgressCard={setInProgressCard}
+              />
             </Suspense>
           </div>
 
